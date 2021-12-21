@@ -38,7 +38,9 @@ export class ProductCustomController {
     private readonly _logger: Logger,
   ) {}
 
+  @ApiBearerAuth()
   @Post()
+  @UseGuards(AuthGuard())
   @ApiOperation({ summary: 'Create new product instance' })
   @ApiResponse({ status: 201, description: 'When Ok!' })
   @ApiResponse({ status: 500, description: 'Internal error.' })
@@ -85,9 +87,8 @@ export class ProductCustomController {
     }
   }
 
-  @ApiBearerAuth()
+
   @Get(':id')
-  @UseGuards(AuthGuard())
   @ApiOperation({ summary: 'Search product by id' })
   @ApiResponse({
     status: 200,

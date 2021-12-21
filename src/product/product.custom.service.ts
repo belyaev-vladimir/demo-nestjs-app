@@ -7,13 +7,19 @@ import { Product } from './entities/product.entity';
 import { CreateProductDto } from './dto/create-product.dto';
 import { ProductNotFoundException } from './exceptions/product-not-found.exception';
 import { UpdateProductDto } from './dto/update-product.dto';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class ProductCustomService {
+  private _cache:number = 60000;
+
   constructor(
     @InjectRepository(Product)
     private readonly _productRepository: Repository<Product>,
-  ) {}
+    private readonly _configService: ConfigService,
+  ) {
+    this._cache =  this._configService.get<number>('CACHE');
+  }
 
   public async createProduct(
     createProductDto: CreateProductDto,
@@ -44,7 +50,7 @@ export class ProductCustomService {
   public async getProductById(id: number): Promise<Product> {
     const product: Product = await this._productRepository.findOne({
       where: { id },
-      cache: 60000,
+      cache: this._cache,
     });
     if (!product) {
       throw new ProductNotFoundException();

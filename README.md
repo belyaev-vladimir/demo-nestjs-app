@@ -22,6 +22,11 @@ $  sudo docker-compose up -d
 ```bash
 $ npm run migration:run
 ```
+4.  Тестовый пользователь для получения jwt token (`/auth/login`)
+``` 
+  "email": "admin@example.com",
+  "password": "0000"
+```
 
 ## ABOUT
 
@@ -53,6 +58,9 @@ product.custom.service
 ```
 # Порт приложения
 API_PORT=3000
+
+# Время кеша для некоторых запросов 
+CACHE=60000
 
 # настройки JWT токена
 JWT_SECRET=THIS_IS_SUPER_SECRET_JWT_KEY
