@@ -23,7 +23,7 @@ $  sudo docker-compose up -d
 $ npm run migration:run
 ```
 
-## ABOUT
+## About
 
 Этот проект служит для демонстрации работы с фреймворком NestJS  в node. 
 
@@ -46,7 +46,7 @@ product.custom.controller
 product.custom.service 
 ```
 
-## SETTINGS
+## Settings
 
 Конфиг приложения в `.env`
 
