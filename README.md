@@ -28,7 +28,7 @@ $ npm run migration:run
   "password": "0000"
 ```
 
-## ABOUT
+## About
 
 Этот проект служит для демонстрации работы с фреймворком NestJS  в node. 
 
@@ -51,7 +51,7 @@ product.custom.controller
 product.custom.service 
 ```
 
-## SETTINGS
+## Settings
 
 Конфиг приложения в `.env`
 
